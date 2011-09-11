@@ -17,3 +17,55 @@ XKnow because no projects at the time were using it and it can be interpreted as
 * Extended knowledge
 * Know x (where x stands for anything one would like to know)
 
+#Developing
+
+Right now development is in great flux. The short-term goal is to get
+the code into git-style branches and tags rather than the
+subversion-like branches and tags currently in place.
+
+The eventual branch structure will be as described in: [http://nvie.com/posts/a-successful-git-branching-model/].  A quick summary:
+
+##Permanent branches
+
+* master - current production version - HEAD is always in a production
+           ready state.  Each commit is a new release.  A tag is made
+           with the release id at each commit.
+
+* develop - work in progress on next release
+
+##Supporting branches
+
+All merges that are the end of a supporting branch's life-cycle are `git merge --no-ff`
+
+### feature
+
+* Branch from: develop
+
+* Merge to: develop
+
+* Named: anything except master, develop, release-*, or hotfix-*
+
+Local scope.
+
+### release 
+
+* Branch from: develop
+
+* Merge to: develop and master
+
+* Named: release-*
+
+Commit bugfixes only - NO FEATURES.
+
+Remember to bump the version number.
+
+### hotfix
+
+* Branch from: master
+
+* Merge to: develop and master (and any extant release branch)
+
+* Named: hotfix-*
+
+For fixing immediate bugs when develop is still too unstable to
+release.  Remember to bump the version number.
