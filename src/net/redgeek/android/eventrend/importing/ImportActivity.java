@@ -20,9 +20,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.View;
 import android.view.Window;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import net.redgeek.android.eventrend.EvenTrendActivity;
@@ -132,7 +130,7 @@ public class ImportActivity extends EvenTrendActivity {
     mImporter.setHistory(mHistory);
     GUITaskQueue.getInstance().addTask(mProgress, this);
   }
-    
+
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
     super.onActivityResult(requestCode, resultCode, intent);
