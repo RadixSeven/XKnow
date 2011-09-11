@@ -49,7 +49,7 @@ public class TaskQueue {
 
   private Runnable getNextTask() {
     synchronized (mTasks) {
-      if (mTasks.isEmpty()) {
+      while (mTasks.isEmpty()) {
         try {
           mTasks.wait();
         } catch (InterruptedException e) {
