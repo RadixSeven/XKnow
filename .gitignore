@@ -1,0 +1,5 @@
+#Automatically generated source files
+gen/*
+
+#Object files
+bin/*
